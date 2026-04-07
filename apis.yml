@@ -1,7 +1,11 @@
 aid: eqt
-url: https://raw.githubusercontent.com/api-evangelist/eqt/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/eqt/refs/heads/main/apis.yml
 modified: '2026-03-24'
 apis: []
 common:
   - type: Website
     url: https://www.eqt.com
+description: >-
+  EQT Corporation combines cutting-edge technology with a commitment to environmental
+  stewardship. Discover how we’re shaping the future of energy.
