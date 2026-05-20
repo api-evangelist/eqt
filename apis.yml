@@ -25,6 +25,8 @@ position: Provider
 access: Internal
 apis: []
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/eqt-corporation
   - type: Website
     url: https://www.eqt.com
   - type: Investor Relations
