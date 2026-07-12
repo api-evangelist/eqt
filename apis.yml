@@ -26,6 +26,8 @@ position: Provider
 access: Internal
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/eqt-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/eqt-corporation
   - type: Website
