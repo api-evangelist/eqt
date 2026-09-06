@@ -1,14 +1,18 @@
 aid: eqt
 name: EQT Corporation
 description: >-
-  EQT Corporation is the largest producer of natural gas in the United
-  States, headquartered in Pittsburgh, Pennsylvania. EQT operates in the
-  Appalachian Basin and combines exploration and production technology
-  with environmental stewardship initiatives, including a Scope 1 and
-  Scope 2 net-zero commitment. EQT does not maintain a public developer
-  program or open APIs; data access is limited to investor relations,
-  ESG reporting, and partner-facing portals such as Equitrans Midstream
-  customer services.
+  EQT Corporation is the largest producer of natural gas in the United States,
+  headquartered in Pittsburgh, Pennsylvania. It is a vertically integrated
+  Appalachian Basin operator: upstream exploration and production, plus the
+  interstate gathering and transmission pipelines it acquired with Equitrans
+  Midstream in July 2024. EQT pairs production technology with environmental
+  stewardship commitments, including a Scope 1 and Scope 2 net-zero target it
+  reports as met ahead of its 2025 goal. EQT runs no developer program and
+  publishes no API. Its only machine-readable public documents are the OpenID
+  Connect discovery metadata of two Salesforce customer portals — infopost.eqt.com,
+  the FERC-mandated Informational Postings site for its interstate pipelines, and
+  customers.equitransmidstream.com — whose posting data renders client-side and is
+  otherwise gated to registered customers. Not the Swedish firm EQT AB.
 type: Index
 deliveryModel:
   model: unknown
@@ -42,7 +46,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/eqt/refs/heads/main/apis.yml
 created: '2024-07-02'
-modified: '2026-04-28'
+modified: '2026-09-06'
 specificationVersion: '0.23'
 position: Producing
 access: Internal
@@ -54,12 +58,54 @@ common:
     url: https://www.linkedin.com/company/eqt-corporation
   - type: Website
     url: https://www.eqt.com
-  - type: Investor Relations
+  - type: InvestorRelations
     url: https://ir.eqt.com/investor-relations/overview/default.aspx
-  - type: ESG
-    url: https://esg.eqt.com/
-  - type: Customer Portal
+  - type: Sustainability
+    url: https://www.eqt.com/sustainability
+  - type: X-CustomerPortal
     url: https://customers.equitransmidstream.com/
+  - type: WellKnown
+    url: well-known/eqt-well-known.yml
+  - type: Conformance
+    url: conformance/eqt-conformance.yml
+  - type: LLMsTxt
+    url: llms/eqt-llms.txt
+  - type: GitHubOrganization
+    url: https://github.com/EQTCorporation
+  - type: TermsOfService
+    url: https://www.eqt.com/terms
+  - type: PrivacyPolicy
+    url: https://www.eqt.com/privacy-policy
+  - type: Support
+    url: https://www.eqt.com/about/contact
+  - type: Blog
+    url: https://www.eqt.com/thought-leadership
+  - type: X-InformationalPostings
+    url: https://infopost.eqt.com/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v3
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: >-
+    EQT publishes no API at all, and the one public machine-relevant surface it is required to
+    serve — the FERC Informational Postings Web Site for its Equitrans interstate pipelines at
+    infopost.eqt.com — is a Salesforce Experience Cloud single-page app whose Capacity, Index Of
+    Customers, Nominations and Tariff postings exist only after JavaScript runs, with CSV export
+    generated in the browser and the deeper posting routes answering 401 to anonymous callers.
+  evidence:
+    - url: https://infopost.eqt.com/
+      status: 200
+    - url: https://customers.equitransmidstream.com/IPWS-Gathering/Informational%20Postings/Operationally%20Available.aspx
+      status: 401
+    - url: https://www.eqt.com/llms.txt
+      status: 404
+    - url: https://infopost.eqt.com/.well-known/openid-configuration
+      status: 200
+  checked: '2026-09-06'

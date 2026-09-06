@@ -1,0 +1,119 @@
+generated: '2026-09-06'
+method: probed
+source: https://infopost.eqt.com/.well-known/openid-configuration (200) and https://customers.equitransmidstream.com/.well-known/openid-configuration
+  (200), fetched anonymously 2026-09-06; JWKS confirmed at https://infopost.eqt.com/id/keys (200)
+note: EQT Corporation publishes no public API and therefore no API authentication documentation. What
+  it does serve are two working OpenID Connect authorization servers fronting its customer portals. These
+  are Salesforce Experience Cloud identity endpoints running under EQT-controlled hostnames — the authorization
+  surface belongs to EQT, the implementation is Salesforce's. Access is limited to registered pipeline
+  customers; there is no self-service signup and no documented programmatic onboarding. Nothing here was
+  derived from an OpenAPI spec, because no spec exists.
+summary:
+  public_api: false
+  schemes:
+  - openIdConnect
+  - oauth2
+  self_service_signup: false
+  documentation_url: null
+providers:
+- name: EQT Midstream Informational Postings / Customer Portal
+  host: infopost.eqt.com
+  issuer: https://infopost.eqt.com
+  type: openIdConnect
+  discovery: https://infopost.eqt.com/.well-known/openid-configuration
+  discovery_status: 200
+  jwks_uri: https://infopost.eqt.com/id/keys
+  jwks_status: 200
+  authorization_endpoint: https://infopost.eqt.com/services/oauth2/authorize
+  token_endpoint: https://infopost.eqt.com/services/oauth2/token
+  userinfo_endpoint: https://infopost.eqt.com/services/oauth2/userinfo
+  revocation_endpoint: https://infopost.eqt.com/services/oauth2/revoke
+  introspection_endpoint: https://infopost.eqt.com/services/oauth2/introspect
+  registration_endpoint: https://infopost.eqt.com/services/oauth2/register
+  registration_open: false
+  registration_probe:
+    url: https://infopost.eqt.com/services/oauth2/register
+    status: 401
+    body: '{"error":"invalid_client","error_description":"invalid client credentials"}'
+    note: dynamic client registration is advertised in the discovery document but rejects anonymous callers,
+      so it is not an open DCR surface
+  response_types_supported:
+  - code
+  - token
+  - token id_token
+  id_token_signing_alg_values_supported:
+  - RS256
+  platform: Salesforce Experience Cloud
+- name: Equitrans Midstream Customer Portal
+  host: customers.equitransmidstream.com
+  issuer: https://customers.equitransmidstream.com/CustomerPortal
+  type: openIdConnect
+  discovery: https://customers.equitransmidstream.com/.well-known/openid-configuration
+  discovery_status: 200
+  jwks_uri: https://customers.equitransmidstream.com/CustomerPortal/id/keys
+  jwks_status: 200
+  authorization_endpoint: https://customers.equitransmidstream.com/CustomerPortal/services/oauth2/authorize
+  token_endpoint: https://customers.equitransmidstream.com/CustomerPortal/services/oauth2/token
+  userinfo_endpoint: https://customers.equitransmidstream.com/CustomerPortal/services/oauth2/userinfo
+  revocation_endpoint: https://customers.equitransmidstream.com/CustomerPortal/services/oauth2/revoke
+  introspection_endpoint: https://customers.equitransmidstream.com/CustomerPortal/services/oauth2/introspect
+  registration_endpoint: https://customers.equitransmidstream.com/CustomerPortal/services/oauth2/register
+  registration_open: false
+  response_types_supported:
+  - code
+  - token
+  - token id_token
+  id_token_signing_alg_values_supported:
+  - RS256
+  platform: Salesforce Experience Cloud
+  ownership_note: Equitrans Midstream has been a wholly owned subsidiary of EQT Corporation since the
+    acquisition closed 22 July 2024, so this host is in scope for the EQT record.
+gaps:
+- no public API authentication documentation page exists
+- no API keys, no developer credentials, no self-service credential issuance
+- the OIDC surfaces are portal sign-in for contracted pipeline customers, not an API auth model
+scopes_advertised:
+  count: 36
+  identical_across_both_servers: true
+  note: These are the stock Salesforce Experience Cloud scope values advertised by scopes_supported in
+    both discovery documents. They are NOT a scope model EQT designed, and EQT documents no OAuth scope
+    reference anywhere. Recorded here as observed metadata rather than as a scopes/ artifact, because
+    no OpenAPI declares oauth2 and no EQT documentation covers OAuth — the two conditions the enrichment
+    contract requires before a scopes artifact may be written.
+  values:
+  - address
+  - api
+  - cdp_api
+  - cdp_calculated_insight_api
+  - cdp_identityresolution_api
+  - cdp_ingest_api
+  - cdp_profile_api
+  - cdp_query_api
+  - cdp_segment_api
+  - chatbot_api
+  - chatter_api
+  - content
+  - custom_permissions
+  - data_cloud_user_claims
+  - eclair_api
+  - einstein_gpt_api
+  - email
+  - forgot_password
+  - full
+  - id
+  - interaction_api
+  - lightning
+  - mcp_api
+  - offline_access
+  - openid
+  - pardot_api
+  - phone
+  - profile
+  - pwdless_login_api
+  - refresh_token
+  - scrt_api
+  - sfap_api
+  - user_registration_api
+  - visualforce
+  - wave_api
+  - web

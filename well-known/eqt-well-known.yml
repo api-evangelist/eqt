@@ -1,0 +1,128 @@
+generated: '2026-09-06'
+method: probed
+source: live anonymous GET of the RFC 8615 well-known path list on every host this record knows
+note: >-
+  EQT Corporation runs no developer program. The only well-known documents it serves are the OpenID
+  Connect discovery metadata of two Salesforce Experience Cloud customer portals it operates on its own
+  domains — infopost.eqt.com (the FERC/NAESB Informational Postings Web Site for its Equitrans midstream
+  pipelines) and customers.equitransmidstream.com (the Equitrans customer portal; Equitrans Midstream has
+  been a wholly owned EQT subsidiary since the July 2024 acquisition). Both are real RFC 8414/OIDC
+  documents, saved verbatim. Everything else 404s, 401s, or answers with an HTML shell.
+hosts:
+  - host: www.eqt.com
+    role: corporate website (Webflow)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: infopost.eqt.com
+    role: EQT Midstream Informational Postings Web Site / Customer Portal (Salesforce Experience Cloud)
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: eqt-infopost-openid-configuration.json
+        note: real OIDC discovery metadata; issuer https://infopost.eqt.com
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+  - host: customers.equitransmidstream.com
+    role: Equitrans Midstream customer portal (Salesforce Experience Cloud)
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: eqt-equitrans-openid-configuration.json
+        note: real OIDC discovery metadata; issuer https://customers.equitransmidstream.com/CustomerPortal
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+  - host: ir.eqt.com
+    role: investor relations (Q4 Inc platform)
+    note: >-
+      every /.well-known/* path answers 200 with the 11-byte body "Invalid key" — a soft-404 from the Q4
+      platform, not a served document. Recorded as a miss.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+      - path: /.well-known/api-catalog
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+      - path: /.well-known/agent.json
+        status: 200
+        note: soft-404 ("Invalid key"), not a document
+  - host: eqtforce.my.site.com
+    role: EQT EHS portal (Salesforce tenant; host is salesforce.com-operated, not an EQT-controlled domain)
+    note: >-
+      all paths except openid-configuration return 200 with a Lightning SPA shell — the classic
+      catch-all false positive. Only the OIDC document is real, and it is served from Salesforce's
+      domain rather than EQT's, so it is recorded but not counted as an EQT-published document.
+    documents:
+      - path: /EHS/.well-known/openid-configuration
+        status: 200
+        note: real OIDC metadata but served on a salesforce.com host
+      - path: /EHS/.well-known/security.txt
+        status: 200
+        note: HTML SPA shell, not a document
+      - path: /EHS/.well-known/oauth-authorization-server
+        status: 200
+        note: HTML SPA shell, not a document
+      - path: /EHS/.well-known/api-catalog
+        status: 200
+        note: HTML SPA shell, not a document
+      - path: /EHS/.well-known/ai-plugin.json
+        status: 200
+        note: HTML SPA shell, not a document
+      - path: /EHS/.well-known/agent-card.json
+        status: 200
+        note: HTML SPA shell, not a document
+      - path: /EHS/.well-known/agent.json
+        status: 200
+        note: HTML SPA shell, not a document
+summary:
+  hosts_probed: 5
+  documents_served: 2
+  security_txt: false
+  api_catalog: false
+  agent_card: false
+  ai_plugin: false

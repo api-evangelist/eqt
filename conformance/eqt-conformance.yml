@@ -1,0 +1,73 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  anonymous probes of infopost.eqt.com and customers.equitransmidstream.com, 2026-09-06; the
+  Informational Postings section vocabulary read out of the Salesforce LWR bundle served at
+  https://infopost.eqt.com/CustomerPortal/webruntime/view/3cabf07002eb37fdb7241272354b1323/prod/en-US/home_view
+note: >-
+  EQT Corporation publishes no machine-readable API contract, so nothing here is derived from a spec.
+  Two things are nevertheless verifiable from what EQT serves: working OIDC/OAuth 2.0 authorization
+  servers on its own hosts, and a FERC-mandated Informational Postings Web Site for its interstate gas
+  pipelines. The IPWS entry is recorded as an observed SURFACE, not as a contract-level declaration —
+  contract_declared is false on every row, because there is no contract to declare it in.
+regime:
+  id: energy_utilities
+  label: Energy & Utilities
+  jurisdiction: united-states
+entries:
+  - id: oauth2
+    conforms: true
+    contract_declared: false
+    evidence: https://infopost.eqt.com/.well-known/openid-configuration
+    evidence_status: 200
+    detail: >-
+      authorization, token, revocation and introspection endpoints published; response_types code,
+      token and "token id_token"
+  - id: oidc
+    conforms: true
+    contract_declared: false
+    evidence: https://customers.equitransmidstream.com/.well-known/openid-configuration
+    evidence_status: 200
+    detail: >-
+      RFC 8414 / OpenID Connect Discovery 1.0 metadata with issuer, jwks_uri, userinfo_endpoint and
+      RS256 id_token signing; JWKS confirmed live at https://infopost.eqt.com/id/keys (200)
+  - id: naesb-wgq-ipws
+    label: NAESB WGQ Informational Postings (FERC 18 CFR 284.13 / Order 587)
+    conforms: true
+    contract_declared: false
+    evidence: https://infopost.eqt.com/
+    evidence_status: 200
+    detail: >-
+      EQT operates the FERC-required Informational Postings Web Site for its Equitrans interstate
+      pipelines. The served application exposes the NAESB-standard posting sections — Capacity,
+      Capacity Release, Index Of Customers, Nominations and Scheduling, Notices, Tariff / Entire
+      Tariff — with "Download as CSV" and "Download as PDF" actions. It is a Salesforce Experience
+      Cloud (LWR) single-page application; the postings render client-side and the CSV export is
+      produced in the browser, so no anonymous machine-readable endpoint serves this data. Scheduling
+      contact TransportationServices@eqt.com, emergency line 1-833-990-1534, both published in the
+      same bundle.
+  - id: green-button
+    conforms: false
+    evidence: null
+    detail: not applicable — EQT is an upstream producer and interstate pipeline operator, not a retail
+      utility with metered customer usage data
+  - id: espi
+    conforms: false
+    evidence: null
+    detail: not applicable for the same reason as green-button
+  - id: openadr
+    conforms: false
+    evidence: null
+    detail: no demand-response surface published
+  - id: ieee-2030-5
+    conforms: false
+    evidence: null
+    detail: no distributed-energy-resource surface published
+  - id: rfc9457
+    conforms: false
+    evidence: null
+    detail: no API, therefore no problem+json error envelope
+  - id: idempotency
+    conforms: false
+    evidence: null
+    detail: no write API surface exists
