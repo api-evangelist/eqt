@@ -1,7 +1,9 @@
 ---
 title: EQT Group's Post
 url: https://www.linkedin.com/posts/eqt-group_today-were-proud-to-introduce-eqts-ai-activity-7452400818386980864-uf-h
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"EQT" press release artificial intelligence'
 position: 4
 source: serpapi-google

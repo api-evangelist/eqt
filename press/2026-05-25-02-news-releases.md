@@ -1,7 +1,9 @@
 ---
 title: News Releases
 url: https://www.perficient.com/about/newsroom/news-releases
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"EQT" press release artificial intelligence'
 position: 2
 source: serpapi-google
