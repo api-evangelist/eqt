@@ -1,5 +1,5 @@
 aid: eqt
-name: EQT Corporation
+name: EQT
 description: >-
   EQT Corporation is the largest producer of natural gas in the United States,
   headquartered in Pittsburgh, Pennsylvania. It is a vertically integrated
@@ -109,3 +109,4 @@ x-coverage:
     - url: https://infopost.eqt.com/.well-known/openid-configuration
       status: 200
   checked: '2026-09-06'
+x-legal-name: EQT Corporation
