@@ -1,4 +1,4 @@
-# EQT Corporation (eqt)
+# EQT
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,38 +64,85 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-EQT Corporation is the largest producer of natural gas in the United States, headquartered in Pittsburgh, Pennsylvania. EQT operates in the Appalachian Basin and combines exploration and production technology with environmental stewardship initiatives, including a Scope 1 and Scope 2 net-zero commitment. EQT does not maintain a public developer program or open APIs; data access is limited to investor relations, ESG reporting, and partner-facing portals such as Equitrans Midstream customer services.
+EQT Corporation is the largest producer of natural gas in the United States, headquartered in Pittsburgh, Pennsylvania. It is a vertically integrated Appalachian Basin operator: upstream exploration and production, plus the interstate gathering and transmission pipelines it acquired with Equitrans Midstream in July 2024. EQT pairs production technology with environmental stewardship commitments, including a Scope 1 and Scope 2 net-zero target it reports as met ahead of its 2025 goal. EQT runs no developer program and publishes no API. Its only machine-readable public documents are the OpenID Connect discovery metadata of two Salesforce customer portals — infopost.eqt.com, the FERC-mandated Informational Postings site for its interstate pipelines, and customers.equitransmidstream.com — whose posting data renders client-side and is otherwise gated to registered customers. Not the Swedish firm EQT AB.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/eqt/refs/heads/main/apis.yml)
+**Areas:** Energy · Natural Gas · Oil and Gas · Appalachian Basin · Fortune 1000
 
-## Scope
+## EQT on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** Internal
+Everything profiled for EQT is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/eqt/](https://apis.io/providers/eqt/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### Published properties
 
-- Energy, Natural Gas, Oil and Gas, Appalachian Basin
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Security (2)
 
-- **Created:** 2024-07-02
-- **Modified:** 2026-04-28
+Authentication, trust centre, and vulnerability disclosure.
 
-## APIs
+- [Eqt Authentication](https://apis.io/security/eqt/eqt-authentication/)
+- [Eqt Domain Security](https://apis.io/security/eqt/eqt-domain-security/)
 
-No public APIs have been documented. EQT Corporation does not maintain a public developer program.
+## Where to find this API
 
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.eqt.com)
-- [Investor Relations](https://ir.eqt.com/investor-relations/overview/default.aspx)
-- [ESG](https://esg.eqt.com/)
-- [Customer Portal](https://customers.equitransmidstream.com/)
+- [Support](https://www.eqt.com/about/contact)
+- [Blog](https://www.eqt.com/thought-leadership)
+- [Terms of service](https://www.eqt.com/terms)
+- [Privacy policy](https://www.eqt.com/privacy-policy)
+- [GitHub](https://github.com/EQTCorporation)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 12.6** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 13.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/eqt/](https://apis.io/providers/eqt/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for EQT: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/eqt/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
